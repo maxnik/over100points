@@ -5,11 +5,13 @@ var page = 0;
 var items_list = null;
 var previous_button = null;
 var previous_button_link = null;
+var html_body = null;
 
 $(document).ready(function () {
   items_list = $('#items');
   previous_button = $('#pagination .disabled');
   previous_button_link = $('#previous-button');
+  html_body = $('html, body');
 
   previous_button_link.on('click', function () {
     if (page > 0) {
@@ -53,11 +55,13 @@ function load_items( page )
       }
       items_list.html( items.join( '' ) );
       
+      html_body.animate({ scrollTop: items_list.offset().top }, 1000);
+
       if (1 === page) {
         change_previous_button( true );
       } else if (0 === page) {
         change_previous_button( false );
-      }
+      } 
     })
     .fail(function( jqxhr, textStatus, error ) {
       $( "#main-container" ).prepend( "<div>Request Failed: " + 
