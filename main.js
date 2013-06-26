@@ -33,8 +33,9 @@ $(document).ready(function () {
 function load_items( page ) 
 {
   var hnsearch_api = "http://api.thriftdb.com/api.hnsearch.com/items/" + 
-  "_search?filter[fields][points]=[100%20TO%20*]&sortby=create_ts%20desc&start=" + 
-  (page * ITEMS_PER_PAGE) + "&limit=" + ITEMS_PER_PAGE + "&callback=?";
+  "_search?filter[fields][points]=[100%20TO%20*]&filter[fields][type]=submission&" + 
+  "sortby=create_ts%20desc&start=" + (page * ITEMS_PER_PAGE) + 
+  "&limit=" + ITEMS_PER_PAGE + "&callback=?";
 
   $.getJSON( hnsearch_api )
     .done(function( data ) {
