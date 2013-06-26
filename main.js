@@ -46,11 +46,11 @@ function load_items( page )
       var items = [];
       for (var i = 0; i < results.length; i++) {
         item = results[i].item;
-        items.push('<li><p class="title"><a href="' + item.url + '">' + item.title + '</a> ' + 
-        '<span class="domain">(' + item.domain + ')</span></p>' +
+        items.push('<li><p class="title"><a href="' + get_url( item ) + '">' + item.title + '</a> ' + 
+        '<span class="domain">' + get_domain( item ) + '</span></p>' +
         '<p><span class="stats">' + item.points + ' points | ' + 
         time_to_words( item.create_ts ) + ' ago | ' +
-        '<a href="https://news.ycombinator.com/item?id=' + item.id + '">' + 
+        '<a href="' + get_comments_url( item ) + '">' +
         item.num_comments + ' comments</a></span></p></li>');
       }
       items_list.html( items.join( '' ) );
@@ -116,4 +116,29 @@ function time_to_words( datetime )
     time_ago = Math.round( interval / msec_in_minute ) + " minutes";
   }
   return time_ago;
+}
+
+function get_domain( item )
+{
+  var domain = '';
+  if (item.domain) {
+    domain = '(' + item.domain + ')';
+  }
+  return domain;
+}
+
+function get_url( item )
+{
+  var url = '';
+  if (item.url) {
+    url = item.url;
+  } else {
+    url = get_comments_url( item );
+  }
+  return url;
+}
+
+function get_comments_url( item )
+{
+  return 'https://news.ycombinator.com/item?id=' + item.id; 
 }
