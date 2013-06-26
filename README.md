@@ -3,7 +3,7 @@ over100points
 
 View HackerNews stories with more than 100 points in chronological order
 
-[maxnik.github.io/over100points](http://maxnik.github.io/over100points)
+Go check it out: [maxnik.github.io/over100points](http://maxnik.github.io/over100points)
 
 I used to browse HN through [news.ycombinator.com/over?points=100](http://news.ycombinator.com/over?points=100) link. You can have a quick look on what happened recently without browsing 
 through a dozen pages. But I didn't like the ranking algorithm they used on 
