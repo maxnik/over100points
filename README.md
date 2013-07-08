@@ -1,7 +1,7 @@
 over100points
 =============
 
-View HackerNews stories with more than 100 points in chronological order
+View HackerNews stories with more than 100 points in reverse chronological order.
 
 Go check it out: [maxnik.github.io/over100points](http://maxnik.github.io/over100points)
 
